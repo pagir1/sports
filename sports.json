@@ -1,0 +1,7 @@
+{
+  "sports": [
+    { "id": "nba", "name": "NBA Predictor", "tagline": "Daily player predictions", "status": "live", "accent": "#d9b45b", "path": "nba/", "icon": "hoop" },
+    { "id": "premier-league", "name": "Premier League", "tagline": "English football", "status": "coming_soon", "accent": "#a48cf0", "path": "", "icon": "ball" },
+    { "id": "la-liga", "name": "La Liga", "tagline": "Spanish football", "status": "coming_soon", "accent": "#e8846b", "path": "", "icon": "pitch" }
+  ]
+}

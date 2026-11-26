@@ -1,0 +1,4 @@
+# Local test data only
+data/nba/sample.json
+.DS_Store
+Thumbs.db
