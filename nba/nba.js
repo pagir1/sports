@@ -272,7 +272,8 @@ function renderCalls(data) {
     today.append(el("p", "note", "No calls today."));
   } else {
     today.append(el("p", "note", "Tonight's calls, each at or above the player's own last-10-game average, " +
-      "ranked by how much the model beats his recent form. Players with 20+ recent minutes; " +
+      "where the model rates it higher than his recent form does, ranked by the difference. " +
+      "Some nights have only a few calls. Players with 20+ recent minutes; " +
       "Out, Doubtful and Questionable players were left out."));
     data.calls.forEach((c, i) => today.append(callRow(c, i)));
     today.append(el("p", "note", "Recent form = how often he reached it in his last 20 games. " +
