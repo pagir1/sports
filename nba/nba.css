@@ -189,6 +189,8 @@
 .call .name { margin: 0; font-weight: 600; }
 .call .line { margin: 2px 0 0; color: var(--ink-soft); font-size: 0.9rem; }
 .call .pct { font-size: 1.05rem; color: var(--gold-bright); text-align: right; white-space: nowrap; }
+.call .pct-model { display: block; font-weight: 600; }
+.call .pct-recent { display: block; margin-top: 2px; font-size: 0.78rem; color: var(--ink-soft); }
 .call .result-tag {
   display: inline-block;
   margin-top: 4px;

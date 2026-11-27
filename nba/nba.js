@@ -254,7 +254,14 @@ function callRow(call, index, outcome) {
     const real = outcome === "dnp" ? "" : ` · had ${call.real}`;
     mid.append(el("span", `result-tag ${outcome}`, `${labels[outcome]}${real}`));
   }
-  row.append(mid, el("span", "pct", showChance(call.chance)));
+  const pct = el("span", "pct");
+  if (call.recent === null || call.recent === undefined) {
+    pct.textContent = showChance(call.chance);
+  } else {
+    pct.append(el("span", "pct-model", `Model ${showChance(call.chance)}`),
+               el("span", "pct-recent", `vs. recent form ${Math.round(call.recent * 100)}%`));
+  }
+  row.append(mid, pct);
   return row;
 }
 
@@ -264,10 +271,12 @@ function renderCalls(data) {
   if (!data.calls?.length) {
     today.append(el("p", "note", "No calls today."));
   } else {
-    today.append(el("p", "note", "The 10 most likely calls tonight, for players with 20+ recent minutes. " +
+    today.append(el("p", "note", "Tonight's calls, each at or above the player's own last-10-game average, " +
+      "ranked by how much the model beats his recent form. Players with 20+ recent minutes; " +
       "Out, Doubtful and Questionable players were left out."));
     data.calls.forEach((c, i) => today.append(callRow(c, i)));
-    today.append(el("p", "note", "Combining calls always makes the chance smaller, never bigger."));
+    today.append(el("p", "note", "Recent form = how often he reached it in his last 20 games. " +
+      "Combining calls always makes the chance smaller, never bigger."));
   }
 
   const receipts = $("panel-receipts");
